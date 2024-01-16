@@ -2,7 +2,6 @@ import produce from "immer";
 import { ActionType } from "../action-types";
 import { Action } from "../actions";
 import { Cell } from "../cell";
-import { act } from "@testing-library/react";
 
 interface CellsState {
   loading: boolean;
@@ -65,7 +64,7 @@ const reducer = produce((state: CellsState = initialState, action: Action) => {
     default:
       return state;
   }
-});
+}, initialState);
 
 const randomId = () => {
   return Math.random().toString(36).substr(2, 5);
